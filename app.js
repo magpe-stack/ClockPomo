@@ -1,3 +1,12 @@
+// --- Registro do Service Worker (PWA) ---
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('Service Worker registrado com sucesso:', reg.scope))
+      .catch(err => console.error('Falha ao registrar o Service Worker:', err));
+  });
+}
+
 // --- Elementos do DOM ---
 const themeToggle = document.getElementById('theme-toggle');
 const tabButtons = document.querySelectorAll('.tab-btn');
@@ -52,7 +61,7 @@ function updateClock() {
   const seconds = String(now.getSeconds()).padStart(2, '0');
   clockDisplay.textContent = `${hours}:${minutes}:${seconds}`;
 
-  // Data formatada (Ex: Quinta-feira, 30 de Outubro de 2026)
+  // Data formatada
   const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
   dateDisplay.textContent = now.toLocaleDateString('pt-BR', options);
 }
