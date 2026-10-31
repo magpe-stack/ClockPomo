@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClockPomo</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Manifest & PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#e63946">
+  
+  <!-- Favicon / Ícones (SVG embutido via Data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23e63946'/><circle cx='50' cy='50' r='35' fill='white'/><path d='M50 25 V50 L65 50' stroke='%23e63946' stroke-width='6' stroke-linecap='round'/></svg>">
+  <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>ClockPomo</h1>
+      <button id="theme-toggle" aria-label="Alternar Tema">🌙</button>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="clock">Relógio</button>
+      <button class="tab-btn" data-tab="pomodoro">Pomodoro</button>
+    </nav>
+
+    <main>
+      <!-- Seção Relógio Digital -->
+      <section id="clock" class="tab-content active">
+        <div class="display-time" id="clock-display">00:00:00</div>
+        <div class="display-date" id="date-display">Carregando data...</div>
+      </section>
+
+      <!-- Seção Pomodoro -->
+      <section id="pomodoro" class="tab-content">
+        <div class="pomodoro-modes">
+          <button class="pomo-mode-btn active" data-time="1500">Foco (25m)</button>
+          <button class="pomo-mode-btn" data-time="300">Pausa Curta (5m)</button>
+          <button class="pomo-mode-btn" data-time="900">Pausa Longa (15m)</button>
+        </div>
+
+        <div class="display-time" id="timer-display">25:00</div>
+
+        <div class="controls">
+          <button id="start-btn" class="btn primary">Iniciar</button>
+          <button id="pause-btn" class="btn secondary" disabled>Pausar</button>
+          <button id="reset-btn" class="btn secondary">Reiniciar</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
